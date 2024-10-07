@@ -1,0 +1,16 @@
+<div class="product-list">
+  <h1>Lista de Productos</h1>
+
+  <div class="sort-controls">
+    <button (click)="organizeByCategory()">Organizar por Categorías</button>
+    <button (click)="togglePriceOrder()">{{ getPriceOrderButtonText() }}</button>
+  </div>
+  <div *ngIf="products.length === 0" class="no-products">
+    <h2>NO HAY PRODUCTOS REGISTRADOS.</h2>
+  </div> 
+  <div class="card-container">
+    <div *ngFor="let product of products">
+      <app-card [product]="product"></app-card>
+    </div>
+  </div>
+</div>

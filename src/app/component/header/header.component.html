@@ -1,0 +1,18 @@
+<header>
+  <nav class="navbar">
+    <div class="nav-links">
+      <a routerLink="/" class="button">Inicio</a>
+      <a [routerLink]="['/productos']" class="button">Ver Productos</a>
+      <a [routerLink]="['/favoritos']" class="button">Ver Lista de Favoritos</a>
+    </div>
+    
+    <a (click)="navigateToLogin()" class="login-icon">
+      <img src="assets/admin.jpeg" alt="Login" class="login-icon-img">
+    </a>
+
+    <div class="auth-links" *ngIf="authService.isLoggedIn()">
+      <a routerLink="/agregar-producto" class="button">Agregar Producto (Admin)</a>
+      <a (click)="logout()" class="button">Cerrar Sesión</a>
+    </div>
+  </nav>
+</header>

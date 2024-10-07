@@ -1,0 +1,24 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+  <h2>Agregar Producto</h2>
+  
+  <label for="name">Nombre del Producto:</label>
+  <input id="name" formControlName="name" placeholder="Ingresa el nombre del producto" />
+
+  <label for="price">Precio:</label>
+  <input id="price" formControlName="price" type="number" placeholder="Ingresa el precio" />
+
+  <label for="category">Categoría:</label>
+  <input id="category" formControlName="category" placeholder="Ingresa la categoría" />
+
+  <label for="description">Descripción:</label>
+  <textarea id="description" formControlName="description" placeholder="Ingresa la descripción"></textarea>
+
+  <label for="image">Imagen del Producto:</label>
+  <input id="image" type="file" (change)="onFileSelected($event)" />
+
+  <button type="submit">Agregar Producto</button>
+  <div *ngIf="selectedImage">
+    <h3>Vista previa de la imagen:</h3>
+    <img [src]="selectedImage" alt="Vista previa de la imagen" width="200" />
+  </div>
+</form>
